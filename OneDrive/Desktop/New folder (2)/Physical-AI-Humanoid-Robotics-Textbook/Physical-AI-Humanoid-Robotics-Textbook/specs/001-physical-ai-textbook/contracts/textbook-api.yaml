@@ -1,0 +1,531 @@
+openapi: 3.0.0
+info:
+  title: Physical AI & Humanoid Robotics Textbook API
+  description: API specification for interactive features in the Physical AI textbook
+  version: 1.0.0
+  contact:
+    name: Textbook Development Team
+    email: textbook@example.com
+
+servers:
+  - url: https://textbook-api.example.com/v1
+    description: Production server
+  - url: https://staging-textbook-api.example.com/v1
+    description: Staging server
+
+paths:
+  /modules:
+    get:
+      summary: List all textbook modules
+      description: Retrieve a list of all available textbook modules
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of modules to return
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+        - name: offset
+          in: query
+          description: Number of modules to skip
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: List of textbook modules
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  modules:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Module'
+                  total:
+                    type: integer
+                    description: Total number of modules
+                  offset:
+                    type: integer
+                    description: Number of modules skipped
+                  limit:
+                    type: integer
+                    description: Maximum number of modules returned
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /modules/{moduleId}:
+    get:
+      summary: Get module details
+      description: Retrieve detailed information about a specific textbook module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          description: Unique identifier of the module
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Module details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /modules/{moduleId}/sections:
+    get:
+      summary: List module sections
+      description: Retrieve all sections within a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          description: Unique identifier of the module
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of sections in the module
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContentSection'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /modules/{moduleId}/labs:
+    get:
+      summary: List module labs
+      description: Retrieve all laboratory exercises for a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          description: Unique identifier of the module
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of laboratory exercises
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  labs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LaboratoryExercise'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /search:
+    get:
+      summary: Search textbook content
+      description: Search across all textbook content
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Search query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Maximum number of results to return
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                  total:
+                    type: integer
+                    description: Total number of results
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /references:
+    get:
+      summary: List all references
+      description: Retrieve all academic and technical references used in the textbook
+      parameters:
+        - name: module
+          in: query
+          description: Filter by module ID
+          required: false
+          schema:
+            type: string
+        - name: peerReviewed
+          in: query
+          description: Filter by peer-reviewed status
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: List of references
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  references:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Reference'
+                  total:
+                    type: integer
+                    description: Total number of references
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /capstone:
+    get:
+      summary: Get capstone project details
+      description: Retrieve information about the capstone project
+      responses:
+        '200':
+          description: Capstone project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapstoneProject'
+
+components:
+  schemas:
+    Module:
+      type: object
+      required:
+        - id
+        - title
+        - description
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the module
+          example: "ros2-nervous-system"
+        title:
+          type: string
+          description: Title of the module
+          example: "ROS 2 Nervous System"
+        description:
+          type: string
+          description: Brief description of the module content
+          example: "Understanding nodes, topics, services, URDF, ros2_control, and RViz"
+        learningObjectives:
+          type: array
+          description: Learning objectives for the module
+          items:
+            type: string
+          example: ["Understand ROS 2 architecture", "Create nodes and topics", "Work with URDF models"]
+        prerequisites:
+          type: array
+          description: Prerequisites needed for this module
+          items:
+            type: string
+          example: ["Basic programming knowledge", "Understanding of robotics concepts"]
+        estimatedDuration:
+          type: integer
+          description: Estimated time to complete the module in minutes
+          example: 180
+        sections:
+          type: integer
+          description: Number of sections in the module
+          example: 4
+        labs:
+          type: integer
+          description: Number of laboratory exercises in the module
+          example: 3
+
+    ContentSection:
+      type: object
+      required:
+        - id
+        - title
+        - content
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the section
+          example: "nodes-topics-services"
+        title:
+          type: string
+          description: Title of the section
+          example: "Nodes, Topics, and Services"
+        content:
+          type: string
+          description: Content of the section in Markdown format
+          example: "# Nodes, Topics, and Services\n\nIn ROS 2..."
+        learningOutcomes:
+          type: array
+          description: Learning outcomes for this section
+          items:
+            type: string
+          example: ["Understand node communication", "Create topics and services"]
+        duration:
+          type: integer
+          description: Estimated time to read/understand this section in minutes
+          example: 45
+
+    LaboratoryExercise:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - instructions
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the lab exercise
+          example: "lab-urdf-modeling"
+        title:
+          type: string
+          description: Title of the laboratory exercise
+          example: "URDF Robot Modeling Lab"
+        description:
+          type: string
+          description: Brief description of the lab exercise
+          example: "Create and visualize a simple robot model using URDF"
+        objectives:
+          type: array
+          description: Learning objectives for the exercise
+          items:
+            type: string
+          example: ["Create a URDF file", "Visualize robot in RViz"]
+        prerequisites:
+          type: array
+          description: Prerequisites needed to complete the exercise
+          items:
+            type: string
+          example: ["ROS 2 installed", "Basic understanding of URDF"]
+        instructions:
+          type: string
+          description: Step-by-step instructions in Markdown format
+          example: "1. Create URDF file\n2. Launch RViz\n3. Visualize robot"
+        simulationEnvironment:
+          type: string
+          description: Required simulation environment
+          example: "Gazebo"
+        expectedOutcome:
+          type: string
+          description: Description of expected results
+          example: "Robot model displayed in RViz with proper joint visualization"
+        estimatedDuration:
+          type: integer
+          description: Estimated time to complete the exercise in minutes
+          example: 60
+
+    Reference:
+      type: object
+      required:
+        - id
+        - apaCitation
+        - title
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the reference
+          example: "ref-ros2-design-2023"
+        apaCitation:
+          type: string
+          description: Full APA 7th edition citation
+          example: "Smith, J. (2023). ROS 2 design principles. Journal of Robotics, 15(3), 45-67."
+        title:
+          type: string
+          description: Title of the source
+          example: "ROS 2 design principles"
+        authors:
+          type: array
+          description: Array of author names
+          items:
+            type: string
+          example: ["Smith, J."]
+        publicationYear:
+          type: integer
+          description: Year of publication
+          example: 2023
+        sourceType:
+          type: string
+          description: Type of source
+          enum: [journal, book, conference, website, thesis]
+          example: "journal"
+        url:
+          type: string
+          format: uri
+          description: URL if available online
+          example: "https://example.com/paper"
+        peerReviewed:
+          type: boolean
+          description: Whether the source is peer-reviewed
+          example: true
+        abstract:
+          type: string
+          description: Brief abstract or summary
+          example: "This paper discusses the design principles of ROS 2..."
+
+    SearchResult:
+      type: object
+      required:
+        - id
+        - title
+        - type
+        - contentPreview
+        - url
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the search result
+          example: "result-123"
+        title:
+          type: string
+          description: Title of the search result
+          example: "Understanding ROS 2 Nodes"
+        type:
+          type: string
+          description: Type of content
+          enum: [section, module, lab, reference, capstone]
+          example: "section"
+        contentPreview:
+          type: string
+          description: Preview of the content with search terms highlighted
+          example: "In ROS 2, <em>nodes</em> are the fundamental units of..."
+        url:
+          type: string
+          format: uri
+          description: URL to the content
+          example: "/modules/ros2-nervous-system/nodes-topics-services"
+        relevance:
+          type: number
+          format: float
+          description: Relevance score between 0 and 1
+          example: 0.85
+
+    CapstoneProject:
+      type: object
+      required:
+        - id
+        - title
+        - description
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the capstone project
+          example: "voice-to-action-capstone"
+        title:
+          type: string
+          description: Title of the capstone project
+          example: "Simulated Humanoid Voice-to-Action Project"
+        description:
+          type: string
+          description: Description of the capstone project
+          example: "Implement a simulated humanoid robot that responds to voice commands"
+        objectives:
+          type: array
+          description: Learning objectives for the project
+          items:
+            type: string
+          example: ["Integrate multiple modules concepts", "Implement voice processing", "Create action grounding system"]
+        requiredModules:
+          type: array
+          description: Modules required to complete the project
+          items:
+            type: string
+          example: ["ros2-nervous-system", "vision-language-action"]
+        instructions:
+          type: string
+          description: Detailed instructions in Markdown format
+          example: "# Capstone Project: Voice-to-Action\n\n## Overview\n..."
+        simulationEnvironment:
+          type: string
+          description: Required simulation environment
+          example: "Unity"
+        evaluationCriteria:
+          type: array
+          description: Criteria for evaluating project success
+          items:
+            type: string
+          example: ["Successful voice command processing", "Correct action execution"]
+        estimatedDuration:
+          type: integer
+          description: Estimated time to complete the project in hours
+          example: 10
+
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or missing required fields
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code
+          example: "NOT_FOUND"
+        message:
+          type: string
+          description: Human-readable error message
+          example: "The requested resource was not found"
+        details:
+          type: object
+          description: Additional error details (optional)
+          example: {"resource": "module", "id": "nonexistent-module"}
+
+security:
+  - apiKey: []
+  - oauth2: ["read:textbook", "write:textbook"]
+
+securityDefinitions:
+  apiKey:
+    type: apiKey
+    in: header
+    name: X-API-Key
+  oauth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://textbook.example.com/oauth/authorize
+    tokenUrl: https://textbook.example.com/oauth/token
+    scopes:
+      read:textbook: Read textbook content
+      write:textbook: Write textbook content

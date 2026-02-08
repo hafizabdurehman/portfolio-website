@@ -1,0 +1,256 @@
+/**
+ * Professional CSS styling for the homepage
+ */
+
+.heroBanner {
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3f4f96 0%, #5d3788 100%);
+  color: white;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1rem;
+  }
+}
+
+.heroBanner h1 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.heroBanner .hero__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.buttons .button {
+  background: white !important;
+  color: #000 !important;
+  border: 1px solid #000 !important; /* black border */
+  transition: all 0.3s ease;
+}
+
+.buttons .button:hover {
+  background: #e6e9ff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important; /* black border on hover */
+  transform: translateY(-1px);
+}
+
+.whatThisTextbookCovers {
+  padding: 5rem 0;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.whatThisTextbookCovers::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6e8efb, transparent);
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  font-size: 1.3rem;
+  color: #4a5568;
+  max-width: 800px;
+  margin: 0 auto 3.5rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+  border-color: rgba(110, 142, 251, 0.2);
+}
+
+.cardContent {
+  padding: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  color: #2d3748;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cardDescription {
+  color: #718096;
+  line-height: 1.7;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.cardButton {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  text-align: center;
+}
+
+.cardButton .button {
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  background: linear-gradient(135deg, #3f4f96 0%, #5d3788 100%) !important;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 6px rgba(63, 79, 150, 0.3);
+  transition: all 0.3s ease;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
+
+.cardButton .button:hover {
+  background: linear-gradient(135deg, #5d3788 0%, #3f4f96 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(93, 55, 136, 0.4);
+  color: white !important;
+}
+
+.journeySection {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #3f4f96 0%, #5d3788 100%);
+  color: white;
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.journeySection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+}
+
+.journeyTitle {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+  color: white;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.journeySubtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.journeyButton {
+  margin-top: 1.5rem;
+}
+
+.journeyButton .button {
+  background: white;
+  color: #000;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border: 1px solid #000 !important; /* 1px black border */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.journeyButton .button:hover {
+  background: #e6e9ff;
+  color: #000;
+  border: 1px solid #000 !important; /* 1px black border on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Consistent color scheme for links and navbar */
+.navbar {
+  background-color: #3f4f96 !important;
+}
+
+.navbar__title {
+  color: #e6e9ff !important; /* light color by default */
+  font-weight: 600;
+}
+
+.navbar__title:hover {
+  color: #000 !important; /* dark color on hover */
+}
+
+/* .navbar__link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.3s ease;
+} */
+
+.navbar__link {
+  color: #e6e9ff !important; /* light color by default */
+  transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: #000 !important; /* dark color on hover */
+}
+
+.button--primary {
+  background-color: #3f4f96 !important;
+  border-color: #3f4f96 !important;
+}
+
+ .button--primary:hover {
+  background-color: #5d3788 !important;
+  border-color: #5d3788 !important;
+ } 
+
+a {
+  color: #3f4f96;
+}
+
+a:hover {
+  color: #5d3788;
+}
+

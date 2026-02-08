@@ -1,0 +1,165 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #3f4f96;
+  --ifm-color-primary-dark: #384787;
+  --ifm-color-primary-darker: #35437f;
+  --ifm-color-primary-darkest: #2c3768;
+  --ifm-color-primary-light: #4a5aa8;
+  --ifm-color-primary-lighter: #5262b4;
+  --ifm-color-primary-lightest: #6e7bd4;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* Card button styling */
+.card-button,
+.button--primary {
+  background: linear-gradient(135deg, #3f4f96 0%, #5d3788 100%) !important;
+  border: none !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover,
+.button--primary:hover {
+  background: linear-gradient(135deg, #5d3788 0%, #3f4f96 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(63, 79, 150, 0.4) !important;
+  color: white !important;
+}
+
+/* Hero section button styling */
+.hero .button--secondary {
+  background: white !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.hero .button--secondary:hover {
+  background: #e6e9ff !important;
+  color: #000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid #000 !important;
+}
+
+/* Footer styling */
+.footer {
+  text-align: center !important;
+}
+
+.footer__title,
+.footer__link,
+.footer__link-item,
+.footer__copyright {
+  color: white !important;
+}
+
+.footer .col {
+  text-align: center !important;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center !important;
+  flex-wrap: wrap;
+}
+
+.footer__col {
+  text-align: center !important;
+  padding: 0 1rem !important;
+}
+
+/* Responsive footer */
+@media screen and (max-width: 996px) {
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__col {
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__col {
+    width: 100%;
+    padding: 0 0.5rem !important;
+    margin-bottom: 1.5rem;
+    text-align: center !important;
+  }
+
+  .footer__item {
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__col {
+    padding: 0 0.25rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .footer__title {
+    font-size: 1rem !important;
+  }
+
+  .footer__link-item {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Footer button styling to match hero section */
+.footer .button {
+  background: white !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.footer .button:hover {
+  background: #e6e9ff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+}
