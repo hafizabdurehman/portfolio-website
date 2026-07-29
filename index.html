@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Hafiz Abdur Rehman is a front-end developer building modern portfolio experiences with responsive UI, clean code, and strong design." />
+        <meta name="theme-color" content="#0f172a">
 
         <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -29,7 +31,7 @@
                     </ul>
                 </div>
 
-                <div class="nav__toggle" id="nav-toggle">
+                <div class="nav__toggle" id="nav-toggle" aria-label="Open navigation menu">
                     <i class='bx bx-menu'></i>
                 </div>
             </nav>
@@ -49,10 +51,10 @@
                     </div>
 
                     <div class="home__social">
-                        <a href="https://www.linkedin.com/in/abdur-rehman-40a704300?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" class="home__social-icon"><i class='bx bxl-instagram'></i></a>
-                        <a href="https://github.com/hafizabdurehman" target="_blank" rel="noreferrer" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" class="home__social-icon"><i class='bx bxl-facebook' ></i></a>
+                        <a href="https://www.linkedin.com/in/abdur-rehman-40a704300?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="home__social-icon"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://github.com/hafizabdurehman" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="home__social-icon"><i class='bx bxl-facebook' ></i></a>
                     </div>
                 </div>
 
@@ -158,47 +160,59 @@
                     </div>
                 </div>
             </section>
+<!--===== WORK =====-->
+<section class="work section" id="projects">
+    <h2 class="section-title">Projects</h2>
 
-            <!--===== WORK =====-->
-            <section class="work section" id="projects">
-                <h2 class="section-title">Projects</h2>
+    <div class="work__container bd-grid">
 
-                <div class="work__container bd-grid">
-                    <article class="project-card">
-                        <img src="assets/img/work1.jpg" alt="Project One" class="project-card__img">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">Responsive Portfolio</h3>
-                            <p class="project-card__description">A polished portfolio page optimized for both desktop and mobile devices using modern CSS layout techniques.</p>
-                            <div class="project-card__links">
-                                <a href="https://github.com/hafizabdurehman" target="_blank" rel="noreferrer" class="project-card__link">GitHub</a>
-                                <a href="#" class="project-card__link">Live Demo</a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <img src="assets/img/work2.jpg" alt="Project Two" class="project-card__img">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">Landing Page Design</h3>
-                            <p class="project-card__description">A clean landing page with strong visual hierarchy, branding, and clear call-to-action elements.</p>
-                            <div class="project-card__links">
-                                <a href="https://github.com/hafizabdurehman" target="_blank" rel="noreferrer" class="project-card__link">GitHub</a>
-                                <a href="#" class="project-card__link">Live Demo</a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="project-card">
-                        <img src="assets/img/work3.jpg" alt="Project Three" class="project-card__img">
-                        <div class="project-card__content">
-                            <h3 class="project-card__title">UI Case Study</h3>
-                            <p class="project-card__description">An interactive UI case study demonstrating typography, spacing, and modern interface polish.</p>
-                            <div class="project-card__links">
-                                <a href="https://github.com/hafizabdurehman" target="_blank" rel="noreferrer" class="project-card__link">GitHub</a>
-                                <a href="#" class="project-card__link">Live Demo</a>
-                            </div>
-                        </div>
-                    </article>
+        <!-- Cricket Ledger -->
+        <article class="project-card">
+            <img src="assets/img/work1.jpeg" alt="Cricket Ledger" class="project-card__img">
+            <div class="project-card__content">
+                <h3 class="project-card__title">Cricket Ledger</h3>
+                <p class="project-card__description">
+                    DBMS-driven platform for live cricket data analytics built using Python, Flask, SQLite, and RSS feed integration.
+                </p>
+                <div class="project-card__links">
+                    <a href="https://github.com/hafizabdurehman/THE-CRICKET-LEDGER.git" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub</a>
+                    <a href="https://abdurrehman12.pythonanywhere.com/" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Demo</a>
                 </div>
-            </section>
+            </div>
+        </article>
+
+        <!-- Algorithms Visualizer -->
+        <article class="project-card">
+            <img src="assets/img/work2.jpg" alt="Algorithms Visualizer" class="project-card__img">
+            <div class="project-card__content">
+                <h3 class="project-card__title">Algorithms Visualizer</h3>
+                <p class="project-card__description">
+                    Interactive sorting algorithm visualization tool demonstrating step-by-step algorithm execution with a clean interface.
+                </p>
+                <div class="project-card__links">
+                    <a href="https://github.com/hafizabdurehman/DSA-BOOK-MANAGMENT-SYSTEM" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub</a>
+                    <a href="https://dsa-book-managment-system.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card__link">Live Demo</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Music Listening App -->
+        <article class="project-card">
+            <img src="assets/img/work3.jpeg" alt="Music Listening App" class="project-card__img">
+            <div class="project-card__content">
+                <h3 class="project-card__title">Music Listening App</h3>
+                <p class="project-card__description">
+                    Modern music streaming application featuring playlist browsing, music management, and a user-friendly interface.
+                </p>
+                <div class="project-card__links">
+                    <a href="https://github.com/hafizabdurehman/DSA-MUSIC-BROWSE-SIMULATER.git" target="_blank" rel="noopener noreferrer" class="project-card__link">GitHub</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+           
 
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
@@ -208,11 +222,11 @@
                     <div class="contact__panel contact__panel--form">
                         <span class="contact__label">Send Me a Message</span>
                         <h2 class="contact__headline">Let's build something great together.</h2>
-                        <form action="" class="contact__form">
-                            <input type="text" placeholder="Your Name" class="contact__input">
-                            <input type="email" placeholder="Your Email" class="contact__input">
-                            <input type="text" placeholder="Subject" class="contact__input">
-                            <textarea name="message" id="message" rows="6" class="contact__input" placeholder="Your Message"></textarea>
+                        <form action="mailto:hafizmuhammadabdurrehman7@gmail.com" method="post" enctype="text/plain" class="contact__form">
+                            <input type="text" placeholder="Your Name" class="contact__input" name="name" required>
+                            <input type="email" placeholder="Your Email" class="contact__input" name="email" required>
+                            <input type="text" placeholder="Subject" class="contact__input" name="subject" required>
+                            <textarea name="message" id="message" rows="6" class="contact__input" placeholder="Your Message" required></textarea>
                             <button type="submit" class="contact__button button button--primary">Send Message</button>
                         </form>
                     </div>
@@ -248,10 +262,10 @@
                         <div class="contact__follow">
                             <span class="contact__label">Follow Me</span>
                             <div class="contact__socials">
-                                <a href="https://www.linkedin.com/in/abdur-rehman-40a704300?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer"><i class='bx bxl-linkedin'></i></a>
-                                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><i class='bx bxl-instagram'></i></a>
-                                <a href="https://github.com/hafizabdurehman" target="_blank" rel="noreferrer"><i class='bx bxl-github'></i></a>
-                                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><i class='bx bxl-facebook'></i></a>
+                                <a href="https://www.linkedin.com/in/abdur-rehman-40a704300?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                                <a href="https://github.com/hafizabdurehman" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
                             </div>
                         </div>
                     </div>
@@ -277,9 +291,9 @@
         <footer class="footer">
             <p class="footer__title">HAFIZ ABDUR REHMAN</p>
             <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://github.com/hafizabdurehman" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="footer__icon"><i class='bx bxl-github' ></i></a>
             </div>
             <p class="footer__copy">© 2026 Hafiz Abdur Rehman. All rights reserved.</p>
         </footer>
