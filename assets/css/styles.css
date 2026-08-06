@@ -462,6 +462,17 @@ img {
 .skills__card-icon {
   font-size: 2.2rem;
   color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills__card-icon--svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.skills__card-icon--svg svg {
+  width: 100%;
+  height: 100%;
 }
 .skills__card span {
   color: var(--text);
